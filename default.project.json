@@ -1,0 +1,7 @@
+{
+	"name": "ClassConvert",
+	"emitLegacyScripts": false,
+	"tree": {
+		"$path": "Source"
+	}
+}
