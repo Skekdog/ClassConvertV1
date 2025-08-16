@@ -241,7 +241,19 @@ end
 
 frame.Parent = widget
 
-local apiDump = HttpService:JSONDecode(HttpService:GetAsync("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json")).Classes
+local apiDump: {}?
+
+do
+	local lastVersion = plugin:GetSetting("LastVersion")
+	if lastVersion == version() then
+		apiDump = plugin:GetSetting("CachedApiDump")
+	else
+		plugin:SetSetting("LastVersion", version())
+	end
+end
+
+apiDump = apiDump or HttpService:JSONDecode(HttpService:GetAsync("https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json")).Classes
+plugin:SetSetting("CachedApiDump", apiDump)
 
 local function fetchProperties(classToCollect: string)
 	local props: {string} = {}
