@@ -5,7 +5,7 @@ local plugin = GetPlugin
 local module = {}
 
 local toolbar = plugin:CreateToolbar("Class Convert")
-local button = toolbar:CreateButton("Convert", "Opens the menu for selecting a new class", "rbxassetid://88985228041470")
+local button = toolbar:CreateButton("Convert", "Opens the menu for selecting a new class", "rbxassetid://74495699142547")
 button.ClickableWhenViewportHidden = true
 
 module.Toolbar = toolbar
